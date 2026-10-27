@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   Design Token Foundation — Midnight Indigo (dark only)
+
+   This is the single source of truth for every visual value in the app.
+   Components consume these tokens (via Tailwind utilities) instead of
+   hardcoding theme-specific colors, so the UI stays consistent.
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* Surfaces */
+  --color-bg-app: #070B18;
+  --color-bg-header: #080D1C;
+  --color-bg-panel: #0D1425;
+  --color-bg-elevated: #111B30;
+  --color-bg-editor: #090F1F;
+  --color-bg-input: #090F1F;
+  --color-bg-hover: #16203A;
+
+  /* Borders */
+  --color-border-default: #2E3A56;
+  --color-border-subtle: #384464;
+
+  /* Text */
+  --color-text-primary: #E8EDF8;
+  --color-text-secondary: #94A3BD;
+  --color-text-muted: #71819D;
+
+  /* Accent */
+  --color-accent: #6254F3;
+  --color-accent-hover: #7669FF;
+  --color-focus-ring: #8175FF;
+
+  /* Semantic comparison results */
+  --color-added: #34D399;
+  --color-added-bg: #06231F;
+  --color-removed: #FB7185;
+  --color-removed-bg: #29111F;
+  --color-modified: #FBBF24;
+  --color-modified-bg: #29200E;
+  --color-type-changed: #A78BFA;
+  --color-type-changed-bg: #1E1838;
+  --color-info: #38BDF8;
+  --color-info-bg: #0C1F2E;
+
+  /* Primitives */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+}
+
+@layer base {
+  html {
+    /* Root font-size anchors every rem-based utility. Keep it at the
+       browser default (16px) so spacing/type scale 1:1 with Tailwind. */
+    font-size: 1rem;
+  }
+
+  body {
+    @apply antialiased;
+    background: var(--color-bg-app);
+    color: var(--color-text-primary);
+  }
+
+  /* Single global focus ring so every interactive control is keyboard
+     visible without per-component outline handling. */
+  :focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
